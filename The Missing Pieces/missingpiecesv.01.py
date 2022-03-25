@@ -28,11 +28,12 @@ def boss_window():
     submitbutton = tk.Button(nwindow, text = "Submit", fg = "blue", command = submitaction)
     backbutton.pack(side = LEFT, padx = 15)
     submitbutton.pack(side = RIGHT, padx = 15)
+    nwindow_text.insert("1.0", "string")
     #read the file contents, then .insert() them into the .Text() widget of boss_window()
-    class __enter__:
-        with open(path, "r") as firstfile, nwindow_text as secondfile:
-            for line in firstfile:
-                secondfile.insert(line)
+#    class __enter__:
+#        with open(path, "r") as firstfile, nwindow_text as secondfile:
+#            for line in firstfile:
+#                secondfile.insert(line)
 
 selectlboption = tk.Button(text = "Select", fg = "blue", bg = "white", command = boss_window)
 
