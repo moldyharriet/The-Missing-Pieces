@@ -1,22 +1,17 @@
 import tkinter as tk
-from tkinter import END, LEFT, RIGHT, Listbox, Toplevel
+from tkinter import ANCHOR, END, LEFT, RIGHT, Listbox, Toplevel, INSERT
 
 #main window information
 window = tk.Tk()
-lb1 = Listbox(window, width = "20", height = "4", highlightcolor = "yellow")
-lb1.insert(1, "Bosses")
-lb1.insert(2, "NPCs")
-lb1.insert(3, "Sidequests")
-lb1.insert(4, "Dungeons/Caves")
 
 greeting = tk.Label(text = "Welcome to the Missing Pieces! \n v.01",  fg = "black")
 
 def boss_window():
     nwindow = tk.Toplevel()
-    path = r"C:\Users\Chase Gibbs\Desktop\desktop files\coding files\python files\The Missing Pieces\bossinfo.txt"
+    path = r"C:\Users\Chase Gibbs\Documents\GitHub\The-Missing-Pieces\The Missing Pieces\bossinfo.txt"
     tk.Label(nwindow, text = "Type down which bosses you've fought, and their rewards below.").pack(pady = 5)
     def submitaction():
-        path = r"C:\Users\Chase Gibbs\Desktop\desktop files\coding files\python files\The Missing Pieces\bossinfo.txt"
+        path = r"C:\Users\Chase Gibbs\Documents\GitHub\The-Missing-Pieces\The Missing Pieces\bossinfo.txt"
         bossfile = open(path, "r+")
         bossfile.write(nwindow_text.get("1.0", END))
         bossfile.close()
@@ -28,15 +23,95 @@ def boss_window():
     submitbutton = tk.Button(nwindow, text = "Submit", fg = "blue", command = submitaction)
     backbutton.pack(side = LEFT, padx = 15)
     submitbutton.pack(side = RIGHT, padx = 15)
-    nwindow_text.insert("1.0", "string")
-    #read the file contents, then .insert() them into the .Text() widget of boss_window()
-#    class __enter__:
-#        with open(path, "r") as firstfile, nwindow_text as secondfile:
-#            for line in firstfile:
-#                secondfile.insert(line)
+    savewarning = tk.Label(nwindow, text = "You MUST press submit, or else changes will not be saved.")
+    savewarning.pack(pady = 10)
+    with open(path, 'r') as i:
+        nwindow_text.insert(INSERT, i.read())
 
-selectlboption = tk.Button(text = "Select", fg = "blue", bg = "white", command = boss_window)
+def npc_window():
+    nwindow = tk.Toplevel()
+    path = r"C:\Users\Chase Gibbs\Documents\GitHub\The-Missing-Pieces\The Missing Pieces\npcinfo.txt"
+    tk.Label(nwindow, text = "Type down which NPCs you've spoken with, and what they've given you below.").pack(pady = 5)
+    def submitaction():
+        path = r"C:\Users\Chase Gibbs\Documents\GitHub\The-Missing-Pieces\The Missing Pieces\npcinfo.txt"
+        npcfile = open(path, "r+")
+        npcfile.write(nwindow_text.get("1.0", END))
+        npcfile.close()
+    nwindow_text = tk.Text(nwindow)
+    nwindow_text.pack(pady = 20, padx = 20) 
+    nwindow.geometry("640x500")
+    nwindow.title("NPCs")
+    backbutton = tk.Button(nwindow, text = "Back", command = nwindow.destroy, fg = "blue")
+    submitbutton = tk.Button(nwindow, text = "Submit", fg = "blue", command = submitaction)
+    backbutton.pack(side = LEFT, padx = 15)
+    submitbutton.pack(side = RIGHT, padx = 15)
+    savewarning = tk.Label(nwindow, text = "You MUST press submit, or else changes will not be saved.")
+    savewarning.pack(pady = 10)
+    with open(path, 'r') as i:
+        nwindow_text.insert(INSERT, i.read())
+        
+def sidequest_window():
+    nwindow = tk.Toplevel()
+    path = r"C:\Users\Chase Gibbs\Documents\GitHub\The-Missing-Pieces\The Missing Pieces\sidequestinfo.txt"
+    tk.Label(nwindow, text = "Type down which sidequests you've begun, and their information below.").pack(pady = 5)
+    def submitaction():
+        path = r"C:\Users\Chase Gibbs\Documents\GitHub\The-Missing-Pieces\The Missing Pieces\sidequestinfo.txt"
+        sidequestfile = open(path, "r+")
+        sidequestfile.write(nwindow_text.get("1.0", END))
+        sidequestfile.close()
+    nwindow_text = tk.Text(nwindow)
+    nwindow_text.pack(pady = 20, padx = 20) 
+    nwindow.geometry("640x500")
+    nwindow.title("Sidequests")
+    backbutton = tk.Button(nwindow, text = "Back", command = nwindow.destroy, fg = "blue")
+    submitbutton = tk.Button(nwindow, text = "Submit", fg = "blue", command = submitaction)
+    backbutton.pack(side = LEFT, padx = 15)
+    submitbutton.pack(side = RIGHT, padx = 15)
+    savewarning = tk.Label(nwindow, text = "You MUST press submit, or else changes will not be saved.")
+    savewarning.pack(pady = 10)
+    with open(path, 'r') as i:
+        nwindow_text.insert(INSERT, i.read())
 
+def dungeon_window():
+    nwindow = tk.Toplevel()
+    path = r"C:\Users\Chase Gibbs\Documents\GitHub\The-Missing-Pieces\The Missing Pieces\dungeoninfo.txt"
+    tk.Label(nwindow, text = "Type down which Dungeons and Caves you've worked through, and what the rewards for them were below.").pack(pady = 5)
+    def submitaction():
+        path = r"C:\Users\Chase Gibbs\Documents\GitHub\The-Missing-Pieces\The Missing Pieces\dungeoninfo.txt"
+        dungeonfile = open(path, "r+")
+        dungeonfile.write(nwindow_text.get("1.0", END))
+        dungeonfile.close()
+    nwindow_text = tk.Text(nwindow)
+    nwindow_text.pack(pady = 20, padx = 20) 
+    nwindow.geometry("640x500")
+    nwindow.title("Dungeons")
+    backbutton = tk.Button(nwindow, text = "Back", command = nwindow.destroy, fg = "blue")
+    submitbutton = tk.Button(nwindow, text = "Submit", fg = "blue", command = submitaction)
+    backbutton.pack(side = LEFT, padx = 15)
+    submitbutton.pack(side = RIGHT, padx = 15)
+    savewarning = tk.Label(nwindow, text = "You MUST press submit, or else changes will not be saved.")
+    savewarning.pack(pady = 10)
+    with open(path, 'r') as i:
+        nwindow_text.insert(INSERT, i.read())
+
+
+lb1 = Listbox(window, width = "20", height = "4", highlightcolor = "yellow")
+ListOptions = ["Bosses", "NPCs", "Sidequests", "Dungeons/Caves", END]
+for item in ListOptions:
+    lb1.insert(END, item)
+
+def lbSelected():
+    selectedoption = lb1.get(ANCHOR)
+    if selectedoption == "Bosses":
+        boss_window()
+    elif selectedoption == "NPCs":
+        npc_window()
+    elif selectedoption == "Sidequests":
+        sidequest_window()
+    elif selectedoption == "Dungeons/Caves":
+        dungeon_window()
+
+selectlboption = tk.Button(text = "Select", fg = "blue", bg = "white", command = lbSelected)
 
 #geometry and window titles
 greeting.pack()
