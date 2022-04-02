@@ -36,7 +36,7 @@ def npc_window():
     tk.Label(nwindow, text = "Type down which NPCs you've spoken with, and what they've given you below.").pack(pady = 5)
     def submitaction():
         cwd = os.getcwd()
-        path = (cwd + r"\The Missing Pieces\bossinfo.txt")
+        path = (cwd + r"\The Missing Pieces\npcinfo.txt")
         npcfile = open(path, "r+")
         npcfile.write(nwindow_text.get("1.0", END))
         npcfile.close()
@@ -51,7 +51,7 @@ def npc_window():
     savewarning = tk.Label(nwindow, text = "You MUST press submit, or else changes will not be saved.")
     savewarning.pack(pady = 10)
     cwd = os.getcwd()
-    path = (cwd + r"\The Missing Pieces\bossinfo.txt")
+    path = (cwd + r"\The Missing Pieces\npcinfo.txt")
     with open(path, 'r') as i:
         nwindow_text.insert(INSERT, i.read())
         
@@ -60,7 +60,7 @@ def sidequest_window():
     tk.Label(nwindow, text = "Type down which sidequests you've begun, and their information below.").pack(pady = 5)
     def submitaction():
         cwd = os.getcwd()
-        path = (cwd + r"\The Missing Pieces\bossinfo.txt")
+        path = (cwd + r"\The Missing Pieces\sidequestinfo.txt")
         sidequestfile = open(path, "r+")
         sidequestfile.write(nwindow_text.get("1.0", END))
         sidequestfile.close()
@@ -75,7 +75,7 @@ def sidequest_window():
     savewarning = tk.Label(nwindow, text = "You MUST press submit, or else changes will not be saved.")
     savewarning.pack(pady = 10)
     cwd = os.getcwd()
-    path = (cwd + r"\The Missing Pieces\bossinfo.txt")
+    path = (cwd + r"\The Missing Pieces\sidequestinfo.txt")
     with open(path, 'r') as i:
         nwindow_text.insert(INSERT, i.read())
 
@@ -84,7 +84,7 @@ def dungeon_window():
     tk.Label(nwindow, text = "Type down which Dungeons and Caves you've worked through, and what the rewards for them were below.").pack(pady = 5)
     def submitaction():
         cwd = os.getcwd()
-        path = (cwd + r"\The Missing Pieces\bossinfo.txt")
+        path = (cwd + r"\The Missing Pieces\dungeoninfo.txt")
         dungeonfile = open(path, "r+")
         dungeonfile.write(nwindow_text.get("1.0", END))
         dungeonfile.close()
@@ -99,7 +99,7 @@ def dungeon_window():
     savewarning = tk.Label(nwindow, text = "You MUST press submit, or else changes will not be saved.")
     savewarning.pack(pady = 10)
     cwd = os.getcwd()
-    path = (cwd + r"\The Missing Pieces\bossinfo.txt")
+    path = (cwd + r"\The Missing Pieces\dungeoninfo.txt")
     with open(path, 'r') as i:
         nwindow_text.insert(INSERT, i.read())
 
