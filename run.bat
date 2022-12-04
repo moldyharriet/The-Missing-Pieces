@@ -1,1 +1,0 @@
-start "C:\Users\gibbs\OneDrive\Documents\GitHub\The-Missing-Pieces\The Missing Pieces\missingpiecesv.01.pyw"
